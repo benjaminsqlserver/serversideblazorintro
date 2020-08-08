@@ -1,0 +1,63 @@
+{
+  "dataSources": [
+    "conData"
+  ],
+  "generator": "@radzen/blazor-server",
+  "https": false,
+  "ignore": [
+    "\\Server\\appsettings.json"
+  ],
+  "layouts": [
+    "Login",
+    "Main"
+  ],
+  "logo": "",
+  "name": "StudentRegApp",
+  "navigation": [
+    "Class 1 S",
+    "Genders",
+    "Students"
+  ],
+  "pages": [
+    "Class 1 S",
+    "Add Class 1",
+    "Edit Class 1",
+    "Genders",
+    "Add Gender",
+    "Edit Gender",
+    "Students",
+    "Add Student",
+    "Edit Student",
+    "Login",
+    "Application Users",
+    "Application Roles",
+    "Register Application User",
+    "Add Application Role",
+    "Add Application User",
+    "Edit Application User",
+    "Profile",
+    "Unauthorized"
+  ],
+  "port": 8000,
+  "security": {
+    "autoGeneratePages": true,
+    "dataSource": "conData",
+    "duration": 5,
+    "emailConfirmation": false,
+    "layout": "Main",
+    "loginLayout": "Login",
+    "loginPage": "Login",
+    "provider": "default",
+    "smtpFrom": "",
+    "smtpPassword": "",
+    "smtpSSL": false,
+    "smtpServer": "",
+    "smtpUser": ""
+  },
+  "serverLang": "cs",
+  "serverPort": 5000,
+  "serverProject": true,
+  "serverVersion": "3",
+  "startPage": "Class 1 S",
+  "theme": "humanistic"
+}

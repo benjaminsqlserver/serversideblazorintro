@@ -1,0 +1,16 @@
+
+
+Date:2020-08-08 13:04:53,237
+Thread:[1]
+Level:ERROR
+Logger:Syncfusion.Web.Extension.SyncfusionPackage                         [(null)]
+Message:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Syncfusion.Web.Extension.SyncfusionPackage.queryStatusMenuCommand_BeforeQueryStatus_WebSite(Object sender, EventArgs e) in D:\Git\RP\vsext_ej1_conversion_migration\SyncfusionMVCPackage.cs:line 1112
+
+
+Date:2020-08-08 13:04:53,327
+Thread:[1]
+Level:ERROR
+Logger:Syncfusion.Web.Extension.SyncfusionPackage                         [(null)]
+Message:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Syncfusion.Web.Extension.SyncfusionPackage.queryStatusMenuCommand_BeforeQueryStatus_WebSite(Object sender, EventArgs e) in D:\Git\RP\vsext_ej1_conversion_migration\SyncfusionMVCPackage.cs:line 1112

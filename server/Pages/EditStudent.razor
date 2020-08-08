@@ -1,0 +1,102 @@
+﻿@page "/edit-student/{StudentID}"
+@layout MainLayout
+@inherits StudentRegApp.Pages.EditStudentComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using StudentRegApp.Models.ConData
+@using Microsoft.AspNetCore.Identity
+@using StudentRegApp.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Admin, Teacher")]
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@student" TItem="StudentRegApp.Models.ConData.Student" Visible="@(student != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="FirstName" style="width: 100%" Text="First Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(student.FirstName)" Name="FirstName">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="FirstName" style="position: absolute" Text="First Name is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="MiddleName" style="width: 100%" Text="Middle Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(student.MiddleName)" Name="MiddleName">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Surname" style="width: 100%" Text="Surname">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(student.Surname)" Name="Surname">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Surname" style="position: absolute" Text="Surname is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="GenderID" style="width: 100%" Text="Gender">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getGendersResult" Placeholder="Choose Gender" style="display: block; width: 100%" TextProperty="GenderName" @bind-Value="@(student.GenderID)" ValueProperty="GenderID" Name="GenderID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="GenderID" DefaultValue="0" style="position: absolute" Text="Gender is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Photo" style="width: 100%" Text="Photo">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenFileInput ChooseText="Upload Student Photo" @bind-Value="@(student.Photo)" Name="FileInput0">
+                </RadzenFileInput>
+                <RadzenRequiredValidator Component="FileInput0" Text="Student Photo Is Required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CurrentClassID" style="width: 100%" Text="Current Class">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getClass1sResult" Placeholder="Choose Class" style="display: block; width: 100%" TextProperty="ClassName" @bind-Value="@(student.CurrentClassID)" ValueProperty="ClassID" Name="CurrentClassID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="CurrentClassID" DefaultValue="0" style="position: absolute" Text="Current Class is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

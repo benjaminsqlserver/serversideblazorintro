@@ -1,0 +1,67 @@
+﻿@inherits StudentRegApp.Layouts.MainLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using StudentRegApp.Models.ConData
+@using Microsoft.AspNetCore.Identity
+@using StudentRegApp.Models
+<RadzenDialog />
+<RadzenNotification />
+
+<RadzenHeader>
+  <ChildContent>
+    <div class="row justify-content-start align-items-center">
+      <div class="col-md-6 d-flex align-items-center">
+        <RadzenSidebarToggle Click="@SidebarToggle0Click">
+        </RadzenSidebarToggle>
+        <RadzenLabel Text="StudentRegApp">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-6 text-lg-right">
+        <RadzenProfileMenu Visible="@(Security.IsAuthenticated())" Click="@Profilemenu0Click">
+          <ChildContent>
+            <RadzenProfileMenuItem Path="profile" Icon="settings" Text="Profile" Visible="@Security.IsInRole(new string[]{"Authenticated"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Path="application-users" Icon="person" Text="Users" Visible="@Security.IsInRole(new string[]{"Admin"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Path="application-roles" Icon="security" Text="Roles" Visible="@Security.IsInRole(new string[]{"Admin"})">
+            </RadzenProfileMenuItem>
+            <RadzenProfileMenuItem Text="Logout" Value="Logout" Icon="power_settings_new">
+            </RadzenProfileMenuItem>
+          </ChildContent>
+          <Template>
+            <RadzenGravatar Email="@(Security.User?.Name)">
+            </RadzenGravatar>
+          </Template>
+        </RadzenProfileMenu>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenHeader>
+<RadzenBody @ref="body0">
+  <ChildContent>
+    <RadzenContentContainer Name="main">
+    @Body
+    </RadzenContentContainer>
+  </ChildContent>
+</RadzenBody>
+<RadzenSidebar @ref="sidebar0">
+  <ChildContent>
+    <RadzenPanelMenu style="height: 100%">
+      <ChildContent>
+        <RadzenPanelMenuItem Path="class-1-s" Text="Classes" Visible="@Security.IsInRole(new string[]{"Admin"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="genders" Text="Genders" Visible="@Security.IsInRole(new string[]{"Admin"})">
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Path="students" Text="Students" Visible="@Security.IsInRole(new string[]{"Admin", "Teacher"})">
+        </RadzenPanelMenuItem>
+      </ChildContent>
+    </RadzenPanelMenu>
+  </ChildContent>
+</RadzenSidebar>
+<RadzenFooter>
+  <ChildContent>
+    <RadzenLabel Text="StudentRegApp, Copyright Ⓒ 2020">
+    </RadzenLabel>
+  </ChildContent>
+</RadzenFooter>

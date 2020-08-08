@@ -1,0 +1,39 @@
+﻿@page "/"
+@page "/class-1-s"
+@layout MainLayout
+@inherits StudentRegApp.Pages.Class1SComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using StudentRegApp.Models.ConData
+@using Microsoft.AspNetCore.Identity
+@using StudentRegApp.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Admin")]
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Classes">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getClass1sResult" TItem="StudentRegApp.Models.ConData.Class1" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="StudentRegApp.Models.ConData.Class1" Property="ClassID" Title="Class ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="StudentRegApp.Models.ConData.Class1" Property="ClassName" Title="Class Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="StudentRegApp.Models.ConData.Class1" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="studentRegAppModelsConDataClass1">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, studentRegAppModelsConDataClass1))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

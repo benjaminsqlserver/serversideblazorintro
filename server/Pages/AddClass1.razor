@@ -1,0 +1,44 @@
+﻿@page "/add-class-1"
+@layout MainLayout
+@inherits StudentRegApp.Pages.AddClass1Component
+
+@using Radzen
+@using Radzen.Blazor
+@using StudentRegApp.Models.ConData
+@using Microsoft.AspNetCore.Identity
+@using StudentRegApp.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles="Admin")]
+
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@class1" Visible="@(class1 != null)" TItem="StudentRegApp.Models.ConData.Class1" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Class Name" Component="ClassName" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(class1.ClassName)" Name="ClassName">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ClassName" Text="ClassName is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

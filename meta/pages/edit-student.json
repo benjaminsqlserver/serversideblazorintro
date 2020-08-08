@@ -1,0 +1,431 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "FirstName",
+                              "name": "FirstNameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "First Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "FirstName",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${student.FirstName}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "FirstName",
+                              "name": "FirstNameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "First Name is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "MiddleName",
+                              "name": "MiddleNameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Middle Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "MiddleName",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${student.MiddleName}",
+                              "valueType": "string"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Surname",
+                              "name": "SurnameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Surname",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "Surname",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${student.Surname}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "Surname",
+                              "name": "SurnameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Surname is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "GenderID",
+                              "name": "GenderIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Gender",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getGendersResult}",
+                              "name": "GenderID",
+                              "placeholder": "Choose Gender",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "GenderName",
+                              "type": "dropdown",
+                              "value": "${student.GenderID}",
+                              "valueProperty": "GenderID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "GenderID",
+                              "defaultValue": "0",
+                              "name": "GenderIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Gender is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Photo",
+                              "name": "PhotoLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Photo",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "chooseText": "Upload Student Photo",
+                              "name": "fileInput0",
+                              "type": "file-input",
+                              "value": "${student.Photo}"
+                            },
+                            {
+                              "component": "fileInput0",
+                              "name": "requiredValidator0",
+                              "text": "Student Photo Is Required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "CurrentClassID",
+                              "name": "CurrentClassIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Current Class",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClass1sResult}",
+                              "name": "CurrentClassID",
+                              "placeholder": "Choose Class",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "ClassName",
+                              "type": "dropdown",
+                              "value": "${student.CurrentClassID}",
+                              "valueProperty": "ClassID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "CurrentClassID",
+                              "defaultValue": "0",
+                              "name": "CurrentClassIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Current Class is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${student}",
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Student",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "conData.updateStudent",
+                        "parameters": [
+                          {
+                            "name": "StudentID",
+                            "value": "${parameters.StudentID}"
+                          },
+                          {
+                            "name": "Student",
+                            "value": "${student}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "result": "${student}",
+                            "type": "close-popup"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "StudentRegApp.Models.ConData.Student",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${student != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "error": [],
+        "name": "conData.getStudentByStudentID",
+        "parameters": [
+          {
+            "name": "StudentID",
+            "value": "${parameters.StudentID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "student",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "StudentRegApp.Models.ConData.Student"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getGenders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getGendersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<StudentRegApp.Models.ConData.Gender>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getClass1s",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClass1sResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<StudentRegApp.Models.ConData.Class1>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Edit Student",
+  "access": [
+    "Admin",
+    "Teacher"
+  ]
+}
